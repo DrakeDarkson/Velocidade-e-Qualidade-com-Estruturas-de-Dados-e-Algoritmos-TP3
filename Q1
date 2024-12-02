@@ -1,0 +1,19 @@
+import os
+
+def list_files(directory):
+    try:
+        items = os.listdir(directory)
+        for item in items:
+            path = os.path.join(directory, item)
+            if os.path.isdir(path):
+                print(f"[DIRECTORY] {path}")
+                list_files(path)
+            else:
+                print(f"[FILE] {path}")
+    except PermissionError:
+        print(f"Permission denied: {directory}")
+    except FileNotFoundError:
+        print(f"Directory not found: {directory}")
+
+initial_directory = "/Users/breno/Favorites"
+list_files(initial_directory)
