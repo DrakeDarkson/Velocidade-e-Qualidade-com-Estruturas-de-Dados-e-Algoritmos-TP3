@@ -1,0 +1,7 @@
+def inverter_string(s):
+    if len(s) == 0:
+        return ""
+    return s[-1] + inverter_string(s[:-1])
+
+resultado = inverter_string("recursao")
+print(resultado)
